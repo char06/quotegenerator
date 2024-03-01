@@ -1,3 +1,10 @@
+const quoteContainer = document.getElementById("quote-container");
+const quoteText = document.getElementById("quote");
+const authorText = document.getElementById("author");
+const threadsBtn = document.getElementById("threads");
+const newQuoteBtn = document.getElementById("new-quote");
+const loader = document.getElementById("loader");
+
 // Define the apiQuotes variable
 let apiQuotes;
 
@@ -5,7 +12,17 @@ let apiQuotes;
 function newQuote(apiQuotes) {
   // Pick a random quote from the API array
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
-  console.log(quote);
+  // Check if author field is blank
+  !quote.author
+    ? (authorText.textContent = "Unknown")
+    : (authorText.textContent = quote.author);
+
+  //Check the quote length
+  quoteText.length > 50
+    ? quoteText.classList.add("long-quote")
+    : quoteText.classList.remove("long-quote");
+
+  quoteText.textContent = quote.text;
 }
 
 // Define the fetchData function to fetch data from the API
@@ -39,3 +56,13 @@ fetchData(apiEndpoint)
     // Handle any errors that occurred during the fetch operation
     console.error("Error fetching data:", error);
   });
+
+//To thread a quote
+
+function threadQuote() {
+  const threadsUrl = `https://threads.net/intent/post?text=${quoteText.textContent} - ${authorText.textContent}`;
+  window.open(threadsUrl, "_blank");
+}
+//event listeners
+newQuoteBtn.addEventListener("click", () => newQuote(apiQuotes));
+threadsBtn.addEventListener("click", threadQuote);
