@@ -32,6 +32,7 @@ If you wish to contribute or modify the application:
 The Quote Generator application was built by Carlos Aguirre
 
 <img width="1380" alt="Screenshot 2024-02-29 at 10 32 52 PM" src="https://github.com/char06/quotegenerator/assets/24831449/7593507b-6058-4428-a3da-671d5e82e268">
-<br> 
+<br>
+<br>
 <img width="1284" alt="Screenshot 2024-02-29 at 10 25 42 PM" src="https://github.com/char06/quotegenerator/assets/24831449/f36e9c3d-278a-41d6-a98b-17b6b7508d74">
 
